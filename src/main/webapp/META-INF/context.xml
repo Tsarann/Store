@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<Context>
+
+    <Resource url="jdbc:postgresql://localhost:5432/product" driverClassName="org.postgresql.Driver"
+              defaultAutoCommit="false" password="root" username="root" type="javax.sql.DataSource"
+              auth="Container" name="jdbc/product"/>
+
+</Context>
