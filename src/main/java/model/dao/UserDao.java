@@ -1,17 +1,20 @@
 package model.dao;
 
+import model.entity.Order;
 import model.entity.User;
 
+import javax.naming.NamingException;
+import java.sql.SQLException;
 import java.util.List;
 
-public interface UserDao extends CrudDao<Integer, User> {
-    List<User> getAll();
+public interface UserDao extends CrudDao<Long, User> {
 
-    User getByLoginAndPass(String login, String password);
+    List<User> getAll() throws NamingException, SQLException;
 
-    User getByLogin(String login);
+    User getUserByName(String name) throws NamingException, SQLException;
 
-    User getByEmail(String email);
+    User getUserByEmail(String email) throws NamingException, SQLException;
 
-    int getCountBlocked(List<User> person);
+    List<Order> getAllUserOrders(User user) throws NamingException, SQLException;
+
 }

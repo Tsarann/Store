@@ -6,15 +6,21 @@ import model.builder.UserBuilder;
 import java.util.Objects;
 
 public class Product extends Model {
+    private long detailsId;
+    private long price;
     private String name;
     private String category;
-    public long detailsId;
+    private String color;
+    private String size;
 
 
     private Product(ProductBuilderImpl builder) {
         super(builder.id);
         this.name = builder.name;
         this.category = builder.category;
+        this.color = builder.color;
+        this.size = builder.size;
+        this.price = builder.price;
         this.detailsId = builder.detailsId;
 
     }
@@ -24,6 +30,9 @@ public class Product extends Model {
         private long id;
         private String name;
         private String category;
+        private String color;
+        private String size;
+        private long price;
         private long detailsId;
 
         @Override
@@ -41,6 +50,24 @@ public class Product extends Model {
         @Override
         public ProductBuilder setCategory(String category) {
             this.category = category;
+            return this;
+        }
+
+        @Override
+        public ProductBuilder setColor(String color) {
+            this.color = color;
+            return this;
+        }
+
+        @Override
+        public ProductBuilder setSize(String size) {
+            this.size = size;
+            return this;
+        }
+
+        @Override
+        public ProductBuilder setPrice(long price) {
+            this.price = price;
             return this;
         }
 
@@ -77,6 +104,31 @@ public class Product extends Model {
         this.category = category;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+
+    public long getPrice() {
+        return price;
+    }
+
+    public void setPrice(long price) {
+        this.price = price;
+    }
+
     public long getDetailsId() {
         return detailsId;
     }
@@ -92,6 +144,8 @@ public class Product extends Model {
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
         return Objects.equals(name, product.name) && Objects.equals(category, product.category)
+                && Objects.equals(color, product.color) && Objects.equals(size, product.size)
+                && Objects.equals(price, product.price)
                 && Objects.equals(detailsId, product.detailsId);
     }
 
@@ -105,6 +159,9 @@ public class Product extends Model {
         return "Product{" +
                 "name='" + name + '\'' +
                 ", category='" + category + '\'' +
+                ", color='" + color + '\'' +
+                ", size='" + size + '\'' +
+                ", price='" + price + '\'' +
                 ", detailsId='" + detailsId + '\'' +
                 '}';
     }

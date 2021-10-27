@@ -9,6 +9,12 @@ public interface ProductBuilder {
 
     ProductBuilder setCategory(String category);
 
+    ProductBuilder setColor(String color);
+
+    ProductBuilder setSize(String size);
+
+    ProductBuilder setPrice(long price);
+
     ProductBuilder setDetailsId(long detailsId);
 
     Product build();
